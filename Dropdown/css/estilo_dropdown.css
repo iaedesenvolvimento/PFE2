@@ -1,0 +1,92 @@
+* {
+    /*
+                 O simbolo * e chamado de seletor universal, ou seja, representa todos os elementos (tags) HTML da pagina
+              */
+    margin: 0;
+    /*
+                    Remove todas as margens externas do elemento (tag). A margem é o espaço fora do elemento (tag)
+
+                */
+    padding: 0;
+    /*
+                    remove todas as margens internas do elemento
+    
+                 */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: arial;
+}
+
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    /* Remove os marcadores padrão (bolinhas) da lista */
+    display: flex;
+    /* 
+        O Flexbox facilita no alinhamento horizontal dos itens, centralização dos itens,
+        ajuda também na criação de menus, ajuda a distribuir espaço automaticamente
+        e deixar layouts responsivos
+    */
+}
+
+nav ul li {
+    position: relative;
+    /* define referência para o submenu */
+    /* 
+        No item principal do menu li, que no nosso exemplo é Cursos, o submenu passa a ser
+        posicionado em relação a esse item
+    */
+}
+
+nav ul li a {
+    display: block;
+    /* Com display block, o link passa a ocupar toda a área disponível, não somente a área de texto */
+    padding: 15px 20px;
+    /* 
+        O primeiro valor (15px) representa: espaço no topo e embaixo, enquanto que o segundo valor (20px)
+        representa espaço nas laterais
+    */
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background: red;
+}
+
+/* SUBMENU DROPDOWN */
+.submenu {
+    display: none;
+    /* Esconde o submenu. Só deve aparecer quando o ponteiro de mouse sobrepor o submenu */
+    position: absolute;
+    /* Permite posicionar o submenu livremente, ou seja, ele não precisa estar preso dentro da área do menu */
+    top: 100%;
+    /* 
+        Define a distância vertical, onde o submenu ficará exatamente abaixo do menu principal.
+        Por que 100? R: 100% é a altura do elemento pai (menu). Então o submenu começa logo após
+        o item principal, que no nosso caso é Cursos.
+    */
+    left: 0;
+
+    background-color: #444;
+    min-width: 100px;
+    /* 
+        Define a largura mínima para o submenu. Mesmo que o texto seja pequeno, ele terá no mínimo 180 pixels de largura.
+        Evita que o submenu fique apertado
+    */
+}
+
+
+.submenu li {
+    width: 100%;
+}
+
+/* MOSTRA O DROPDOWN */
+.menu:hover .submenu{
+    display: block;      /* Mostra o submenu ao passar o mouse */
+}
